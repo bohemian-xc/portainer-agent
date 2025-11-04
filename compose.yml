@@ -1,0 +1,11 @@
+services:
+  portainer:
+    image: portainer/agent:2.33.1
+    container_name: portainer_agent
+    restart: always
+    ports:
+      - "9001:9001"  # Edge agent comms
+    volumes:
+      - "/var/run/docker.sock:/var/run/docker.sock"
+      - "/var/lib/docker/volumes:/var/lib/docker/volumes"
+      - "./vol/host:/host"
